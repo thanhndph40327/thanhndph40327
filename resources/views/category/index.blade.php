@@ -1,6 +1,29 @@
 @extends('layoutadmin')
-@session('title')
-    <table class="">
-
+@section('title')
+    Danh mục
+@endsection
+@section('content')
+    <a href="{{route('category.create')}}" class="btn btn-success">Thêm mới</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">status</th>
+            <th scope="col">action</th>
+        </thead>
+        <tbody>
+        @foreach($listCate as $item)
+        <tr>
+            <th scope="row">{{$item->id}}</th>
+            <td>{{$item->name}}</td>
+            <td>{{$item->status}}</td>
+     
+           
+            
+        </tr>
+        @endforeach
+        </tbody>
     </table>
-@endsession
+    {{$listCate->links()}}
+@endsection

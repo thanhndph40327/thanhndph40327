@@ -21,7 +21,7 @@ class Category extends Model
     public function loadAllCate(){
         $query = DB::table($this->table)
             ->select($this->fillable)
-            ->get();
+            ->paginate(5);
         return $query;
     }
 }
